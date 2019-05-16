@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Summary{% endblock %}
+{% block content %}
+<form method="post">
+<div align="right">
+  <a href="{% url 'logout' %}"><font color="white">Logout</font></a>
+  &nbsp;
+  <a href="{% url 'password_reset' %}"><font color="white">Reset Password</font></a>
+  &nbsp;
+  </div>
+  {%csrf_token%}
+<p><font color="white">Enter the text to be summarized:</font></p>
+  <table>
+  {{ form }}
+  </table>
+<div>
+<div style="float: left;">
+<button type="submit">Summarize</button></div>
+<div style="float: right;">
+<p style="text-align:right;"><a href="{% url 'home' %}">Back to Home</a></p></div>
+</div>
+<br><br><br>
+<font color="white"> Summary:<br> {{text}}</font>
+</form>
+{% endblock %}
+

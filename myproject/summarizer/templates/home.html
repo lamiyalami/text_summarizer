@@ -1,0 +1,46 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  
+
+  <div align="right">
+  <a href="{% url 'logout' %}"><font color="white">Logout</font></a>
+  &nbsp;
+  <a href="{% url 'password_reset' %}"><font color="white">Reset Password</font></a>
+  &nbsp;
+  </div>
+  <font color="white"><h3>Hi {{ user.username }}!</h3>
+  <h5> Summarization</h5>
+
+  </font>
+  
+  <p><font color="lightgrey">Welcome to Text Summarizer.This is a tool to ease your work by providing a brief summary of your text data.Let's have fun with summarization!</font></p>
+  <p align="center"><a href="{% url 'sumrz' %}"><button>Summarizer</button></a></p>
+  <font color="white">
+  <h5> Word Cloud</h5>
+
+  </font>
+  
+  <p><font color="lightgrey">Word Cloud is a pictorial representation of a document. It provides an instant idea about the document. </font></p>
+  <p align="center"><a href="{% url 'wrd' %}"><button>Word Cloud</button></a></p>
+{% else %}
+  <header class="text-white">
+    <div class="container text-center">
+      <br/>
+      <h1>Text Summarizer</h1>
+      <br/></br></br></br></br>
+    </div>
+  </header>
+  
+  <div class=center>
+  <div class=container>
+  <a href="{% url 'login' %}"><font color="white"><h2>Login</h2></font></a>
+  <a href="{% url 'signup' %}"><font color="white"><h2>Sign Up</h2></font></a>
+  </div></div>
+
+{% endif %}
+{% endblock %}
